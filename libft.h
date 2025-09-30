@@ -39,7 +39,7 @@ int	ft_tolower(int c);
 //memchr
 //memcmp
 //strnstr
-//atoi
+int	ft_atoi(const char *nptr);
 
 //part 2
 
