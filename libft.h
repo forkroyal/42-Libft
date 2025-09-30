@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:33:28 by fsitter           #+#    #+#             */
-/*   Updated: 2025/09/30 16:26:49 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/09/30 18:02:43 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h> //delete
 # include <string.h>
 # include <unistd.h>
+# include <stdlib.h> //needed?
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
