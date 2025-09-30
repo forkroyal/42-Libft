@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:33:28 by fsitter           #+#    #+#             */
-/*   Updated: 2025/09/30 12:19:36 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/09/30 16:26:49 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,36 @@ void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
+//memmove
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+//strlcat
+int	ft_toupper(int c);
+int	ft_tolower(int c);
+//strchr
+//strrchr
+//strncmp
+//memchr
+//memcmp
+//strnstr
+//atoi
+
+//part 2
+
+//ft_substr
+//ft_strjoin
+//ft_strtrim
+//ft_split
+//ft_itoa
+//ft_strmapi
+//ft_striteri
+//ftputchar fd
+//ft putstr fd
+//ft putendl fd
+//ft putnbr fd
+
+//bonus - add when done with part 2
+
+
+
 
 #endif
