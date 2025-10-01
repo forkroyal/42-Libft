@@ -1,45 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/30 17:59:16 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/01 14:01:45 by fsitter          ###   ########.fr       */
+/*   Created: 2025/10/01 13:29:02 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/01 14:01:20 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr);
+char	*ft_strchr(const char *s, int c);
 
-int	ft_atoi(const char *nptr)
+char	*ft_strchr(const char *s, int c)
 {
-	long long	number;
-	long long	sign;
-	int			i;
-
-	number = 0;
-	sign = 1;
-	i = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || (nptr[i] == 32))
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	while (*s)
 	{
-		if (nptr[i] == '-')
-			sign *= -1;
-		i++;
+		if (*(unsigned char *)s == (unsigned char)c)
+		{
+			return ((char *)s);
+		}
+		s++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
+	if (*(unsigned char *)s == (unsigned char)c)
 	{
-		number = number * 10 + nptr[i] - 48;
-		i++;
+		return ((char *)s);
 	}
-	return (number * sign);
+	return (0);
 }
 
 // int	main(void)
 // {
-// 	printf("%i\n", ft_atoi("-32"));
+// 	printf("%s\n", ft_strchr("", '\0'));
 // }
