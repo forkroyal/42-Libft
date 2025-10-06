@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:20:57 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/06 14:22:26 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/06 14:45:25 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ char	*ft_itoa(int n);
 
 char	*ft_itoa(int n)
 {
+	
 	return (0);
 }
 
 int	main(void)
 {
-	printf("%c", ft_itoa(42));
+	printf("%s", ft_itoa(42));
 }
