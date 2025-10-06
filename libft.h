@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:33:28 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/02 17:00:26 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/06 10:13:01 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		ft_atoi(const char *nptr);
 // ft_substr
 // ft_strjoin
 // ft_strtrim
-// ft_split
+// char	**ft_split(char const *s, char c);
 // ft_itoa
 // ft_strmapi
 // ft_striteri
