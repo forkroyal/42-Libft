@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:33:28 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/06 14:56:28 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/06 15:08:54 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 // ft_strmapi
 // ft_striteri
 void	ft_putchar_fd(char c, int fd);
-// ft putstr fd
+void	ft_putstr_fd(char *s, int fd);
 // ft putendl fd
 // ft putnbr fd
 
