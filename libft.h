@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:33:28 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/06 10:13:01 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/06 12:54:20 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 // char *ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_atoi(const char *nptr);
-// calloc
-// strdup
+void	*ft_calloc(size_t nmemb, size_t size);
+char	*ft_strdup(const char *s);
 
 // part 2
 
-// ft_substr
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 // ft_strjoin
 // ft_strtrim
 // char	**ft_split(char const *s, char c);
