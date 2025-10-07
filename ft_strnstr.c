@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 16:53:29 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/06 10:41:58 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/07 09:32:32 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,36 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	return (0);
+	size_t i, j;
+	i = 0;
+	if (little[0] == '\0')
+		return ((char *)big);
+	while (big[i] && i < len)
+	{
+		j = 0;
+		while (big[i+j] != '\0' && big[i+j] == little[j] && j < len)
+		{
+			if (little[j+1] == '\0')
+				return ((char *)&big[i]);
+			j++;
+		}
+		i++;
+	}
+	return(0);
 }
+
 // int	main(void)
 // {
+
 // 	const char *largestring = "Foo Bar Baz";
-//     const char *smallstring = "Bar";
-//     char *ptr;
+// 	const char *smallstring = "Bar";
+// 	size_t lbsd = 2;
+// 	char *ptr;
+// 	char *ptr2;
 
-//     *ptr = strnstr(largestring, smallstring, 4);
+//     ptr = ft_strnstr(largestring, smallstring, lbsd);
+// 	printf("%s\n", ptr);
 
-// 	printf("%c\n", *ptr);
+// 	// ptr2 = strnstr(largestring, smallstring, lbsd);
+// 	// printf("%s\n", ptr2);
 // }
