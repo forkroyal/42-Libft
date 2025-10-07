@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 16:53:29 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/07 09:32:32 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/07 10:35:19 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 // {
 
 // 	const char *largestring = "Foo Bar Baz";
-// 	const char *smallstring = "Bar";
-// 	size_t lbsd = 2;
+// 	const char *smallstring = "Baz";
+// 	size_t lbsd = 20;
 // 	char *ptr;
 // 	char *ptr2;
 
