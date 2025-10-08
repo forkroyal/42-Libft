@@ -1,0 +1,1331 @@
+!<arch>
+ft_atoi.c/      0           0     0     644     1396      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/30 17:59:16 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/01 14:01:45 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+int	ft_atoi(const char *nptr);
+
+int	ft_atoi(const char *nptr)
+{
+	long long	number;
+	long long	sign;
+	int			i;
+
+	number = 0;
+	sign = 1;
+	i = 0;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || (nptr[i] == 32))
+		i++;
+	if (nptr[i] == '+' || nptr[i] == '-')
+	{
+		if (nptr[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		number = number * 10 + nptr[i] - 48;
+		i++;
+	}
+	return (number * sign);
+}
+
+// int	main(void)
+// {
+// 	printf("%i\n", ft_atoi("-32"));
+// }ft_bzero.c/     0           0     0     644     1317      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/30 10:29:52 by fsitter           #+#    #+#             */
+/*   Updated: 2025/09/30 10:38:39 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	ft_bzero(void *s, size_t n);
+
+void	ft_bzero(void *s, size_t n)
+{
+	unsigned char	*str;
+
+	str = (unsigned char *)s;
+	while (n-- > 0)
+		*str++ = '\0';
+}
+
+// int	main(void)
+// {
+// 	char test[5] = {"hello"};
+// 	printf("%s\n", test);
+// 	ft_bzero(test + 1, sizeof(char) * 2);
+// 	// memset(test+1, 'a', sizeof(char) * 2);
+// 	// printf("%s\n", ft_memset(test + 1, 'x', 2));
+// 	printf("%s\n", test);
+// }
+ft_calloc.c/    0           0     0     644     1607      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/06 10:20:58 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/06 10:41:33 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	*ft_calloc(size_t nmemb, size_t size);
+// void	*ft_memset(void *s, int c, size_t n);
+
+// void	*ft_memset(void *s, int c, size_t n)
+// {
+// 	unsigned char	*str;
+// 	unsigned char	ctr;
+// 	int				i;
+
+// 	i = 0;
+// 	str = (unsigned char *)s;
+// 	ctr = (unsigned char)c;
+// 	while (n > i)
+// 	{
+// 		str[i] = ctr;
+// 		i++;
+// 	}
+// 	return (s);
+// }
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	size_t	bytesize;
+	void	*pointer;
+
+	bytesize = nmemb + size;
+	pointer = malloc(bytesize);
+	if (!pointer)
+		return (NULL);
+	ft_memset(pointer, 0, bytesize);
+	return (pointer);
+}
+
+// int	main(void)
+// {
+// 	char *pointer;
+
+// 	pointer = ft_calloc(5, sizeof(char));
+// 	printf("%s\n", pointer);
+
+// }
+ft_isalnum.c/   0           0     0     644     1060      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/29 13:02:38 by fsitter           #+#    #+#             */
+/*   Updated: 2025/09/29 13:04:35 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	ft_isalnum(int c);
+
+int	ft_isalnum(int c)
+{
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0'
+			&& c <= '9'))
+		return (1);
+	else
+		return (0);
+}
+ft_isalpha.c/   0           0     0     644     1031      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/29 12:49:04 by fsitter           #+#    #+#             */
+/*   Updated: 2025/09/29 12:58:40 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	ft_isalpha(int c);
+
+int	ft_isalpha(int c)
+{
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+		return (1);
+	else
+		return (0);
+}
+
+ft_isascii.c/   0           0     0     644     972       `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/29 13:05:42 by fsitter           #+#    #+#             */
+/*   Updated: 2025/09/29 13:10:19 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	ft_isascii(int c);
+
+int	ft_isascii(int c)
+{
+	return (c >= 0 && c <= 127);
+}
+ft_isdigit.c/   0           0     0     644     1003      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/29 12:59:47 by fsitter           #+#    #+#             */
+/*   Updated: 2025/09/29 13:02:15 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	ft_isdigit(int c);
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
+}
+
+ft_isprint.c/   0           0     0     644     973       `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/29 13:11:15 by fsitter           #+#    #+#             */
+/*   Updated: 2025/09/29 13:37:18 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	ft_isprint(int c);
+
+int	ft_isprint(int c)
+{
+	return (c >= 32 && c <= 126);
+}
+
+ft_itoa.c/      0           0     0     644     1764      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/06 14:20:57 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/07 11:17:50 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char	*ft_itoa(int n);
+int		wie_viele_stellen(long long number);
+
+int	wie_viele_stellen(long long number)
+{
+	int	stellen;
+
+	stellen = 0;
+	if (number < 0)
+	{
+		number *= -1;
+		stellen++;
+	}
+	if (number == 0)
+		stellen++;
+	while (number > 0)
+	{
+		number /= 10;
+		stellen++;
+	}
+	return (stellen);
+}
+
+char	*ft_itoa(int n)
+{
+	long long	number;
+	int			stellen;
+	char		*itoa;
+
+	number = n;
+	stellen = wie_viele_stellen(n);
+	itoa = malloc(sizeof(char) * stellen + 1);
+	if (!itoa)
+		return (0);
+	itoa[stellen--] = '\0';
+	if (number == 0)
+		itoa[0] = 48;
+	if (number < 0)
+	{
+		itoa[0] = '-';
+		number *= -1;
+	}
+	while (number > 0)
+	{
+		itoa[stellen--] = number % 10 + 48;
+		number /= 10;
+	}
+	return (itoa);
+}
+
+// int	main(void)
+// {
+// 	int a = -42;
+// 	printf("%s", ft_itoa(a));
+// 	//printf("%s\n", itoa(a));
+// 	// printf("%i\n", wie_viele_stellen(-420));
+// }ft_memchr.c/    0           0     0     644     1480      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/01 16:19:37 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/01 16:40:18 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	*ft_memchr(const void *s, int c, size_t n);
+
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	while ((unsigned char *)s && n > 0)
+	{
+		if (*(unsigned char *)s == (unsigned char)c)
+		{
+			return ((unsigned char *)s);
+		}
+		s++;
+		n--;
+	}
+	return (NULL);
+}
+
+// int	main(void)
+// {
+// 	char haystack[] = {'s', 'r', 's', 't', 'w', 'p', 'x'};
+// 	char needle = 'p';
+
+// 	char *position = ft_memchr(haystack, needle, 6);
+// 	if (position == NULL)
+// 		return (0);
+// 	printf("%c\n", position[0]);
+// 	printf("%c\n", position[1]);
+// 	printf("%c\n", position[2]);
+// }ft_memcmp.c/    0           0     0     644     1443      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/01 17:40:23 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/02 09:34:00 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+int	ft_memcmp(const void *s1, const void *s2, size_t n);
+
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	const unsigned char	*str1;
+	const unsigned char	*str2;
+
+	str1 = s1;
+	str2 = s2;
+	while (n > 0)
+	{
+		if (*str1 != *str2)
+			return (*str1 - *str2);
+		str1++;
+		str2++;
+		n--;
+	}
+	return (0);
+}
+
+// int	main(void)
+// {
+// 	char *s1 = "hello";
+// 	char *s2 = "xello";
+// 	int len = 3;
+
+// 	int ft = ft_memcmp(s1, s2, len);
+// 	int og = memcmp(s1, s2, len);
+
+// 	printf("FT: %i\n", ft);
+// 	printf("OG: %i\n", og);
+// }
+ft_memcpy.c/    0           0     0     644     1402      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/30 10:41:01 by fsitter           #+#    #+#             */
+/*   Updated: 2025/09/30 11:11:23 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	unsigned char	*mydest;
+	unsigned char	*mysrc;
+
+	mydest = (unsigned char *)dest;
+	mysrc = (unsigned char *)src;
+	if (!dest || !src)
+		return (NULL);
+	while (n-- > 0)
+		*mydest++ = *mysrc++;
+	return (dest);
+}
+
+// int	main(void)
+// {
+// 	char dest[5] = {"hello"};
+// 	char src[5] = {"bybye"};
+// 	printf("%s\n", dest);
+// 	ft_memcpy(dest, src, 5);
+// 	printf("%s\n", dest);
+// }ft_memmove.c/   0           0     0     644     1714      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/30 11:48:46 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/02 11:53:29 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	*ft_memmove(void *dest, const void *src, size_t n);
+
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	char		*mydest;
+	const char	*mysrc;
+	int			i;
+
+	if (!dest || !src)
+		return (0);
+	mydest = dest;
+	mysrc = src;
+	i = 0;
+	if (dest < src)
+	{
+		while (i++ < n)
+			mydest[i] = mysrc[i];
+	}
+	else
+	{
+		while (i++ < n)
+			mydest[n - i - 1] = mysrc[n - i - 1];
+	}
+	return (dest);
+}
+
+// int	main(void)
+// {
+// 	int	src[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+// 	int	dest[10];
+// 	int	len;
+// 	int	plus_dest;
+// 	int	copy_this_much;
+// 	int	i;
+
+// 	len = sizeof(src) / sizeof(src[0]);
+// 	plus_dest = 2;
+// 	copy_this_much = len - plus_dest;
+// 	ft_memmove(src + plus_dest, src, sizeof(int) * copy_this_much);
+// 	i = 0;
+// 	while (i < 10)
+// 	{
+// 		printf("%i\n", src[i]);
+// 		i++;
+// 	}
+// }
+ft_memset.c/    0           0     0     644     1470      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/29 15:54:39 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/06 10:33:04 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	*ft_memset(void *s, int c, size_t n);
+
+void	*ft_memset(void *s, int c, size_t n)
+{
+	unsigned char	*str;
+	unsigned char	ctr;
+	int				i;
+
+	i = 0;
+	str = (unsigned char *)s;
+	ctr = (unsigned char)c;
+	while (n > i)
+	{
+		str[i] = ctr;
+		i++;
+	}
+	return (s);
+}
+
+// int	main(void)
+// {
+// 	char test[5] = {"hello"};
+// 	printf("%s\n", test);
+// 	ft_memset(test+1, 'X', sizeof(char) * 2);
+// 	printf("%s\n", test);
+
+// 	// char test1[5] = {"hello"};
+// 	// printf("%s\n", test1);
+// 	// memset(test1+1, 'X', sizeof(char) * 2);
+// 	// printf("%s\n", test1);
+// }ft_putchar_fd.c/0           0     0     644     1061      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/06 14:46:24 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/06 14:55:46 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void ft_putchar_fd(char c, int fd);
+
+void ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
+
+// int	main(void)
+// {
+// 	ft_putchar_fd(48, 1);
+// }
+ft_putendl_fd.c/0           0     0     644     1132      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/06 15:09:20 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/06 16:41:31 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void ft_putendl_fd(char *s, int fd);
+
+void ft_putendl_fd(char *s, int fd)
+{
+	int i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	write(fd, "\n", 1);
+}
+
+// int	main(void)
+// {
+// 	ft_putendl_fd("hallo", 1);
+// }ft_putnbr_fd.c/ 0           0     0     644     1252      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/06 16:43:44 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/06 16:55:45 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	ft_putnbr_fd(int n, int fd);
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	long long	number;
+
+	number = n;
+	if (number < 0)
+	{
+		write(fd, "-", 1);
+		number *= -1;
+	}
+	while (number > 9)
+	{
+		ft_putnbr_fd(number / 10, fd);
+		number %= 10;
+	}
+	number = number + 48;
+	write(fd, &number, 1);
+}
+
+// int	main(void)
+// {
+// 	ft_putnbr_fd(42, 1);
+// }ft_putstr_fd.c/ 0           0     0     644     1108      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/06 14:57:11 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/06 15:07:14 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	ft_putstr_fd(char *s, int fd);
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	int i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+}
+
+// int	main(void)
+// {
+// 	ft_putstr_fd("hallo", 1);
+// }ft_strchr.c/    0           0     0     644     1253      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/01 13:29:02 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/01 14:01:20 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char	*ft_strchr(const char *s, int c);
+
+char	*ft_strchr(const char *s, int c)
+{
+	while (*s)
+	{
+		if (*(unsigned char *)s == (unsigned char)c)
+		{
+			return ((char *)s);
+		}
+		s++;
+	}
+	if (*(unsigned char *)s == (unsigned char)c)
+	{
+		return ((char *)s);
+	}
+	return (0);
+}
+
+// int	main(void)
+// {
+// 	printf("%s\n", ft_strchr("", '\0'));
+// }
+ft_strdup.c/    0           0     0     644     1397      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/06 12:02:10 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/06 12:20:46 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char	*ft_strdup(const char *s);
+
+char	*ft_strdup(const char *s)
+{
+	int		len;
+	int		i;
+	char	*duplicate;
+
+	len = ft_strlen(s);
+	duplicate = malloc(sizeof(char) * (len + 1));
+	if (!duplicate)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		duplicate[i] = s[i];
+		i++;
+	}
+	duplicate[i] = '\0';
+	return (duplicate);
+}
+
+// int	main(void)
+// {
+// 	char s[] = "Hello";
+// 	char *s2 = ft_strdup(s);
+// 	printf("%s\n", s);
+// 	printf("%p\n", s);
+// 	printf("%s\n", s2);
+// 	printf("%p\n", s2);
+// }
+ft_striteri.c/  0           0     0     644     1412      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/08 13:21:02 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/08 13:31:52 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+{
+	int i = 0;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
+}
+
+// void		fs_toupper(unsigned int a, char* c);
+
+// void		fs_toupper(unsigned int a, char* c)
+// {
+// 	(void)a;
+// 	if (*c >= 'a' && *c <= 'z')
+// 		*c = *c - 32;
+// 	else
+// 		return;
+// }
+
+// int	main(void)
+// {
+// 	char hallo[] = "hallo";
+// 	char *s;
+
+// 	ft_striteri(hallo, fs_toupper);
+// 	printf("%s\n", hallo);
+// }ft_strjoin.c/   0           0     0     644     1470      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/06 13:28:38 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/06 13:41:34 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char	*ft_strjoin(char const *s1, char const *s2);
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	size_t	len_joined;
+	char	*joined;
+	int		i;
+	int		j;
+
+	len_joined = ft_strlen(s1) + ft_strlen(s2) + 1;
+	joined = malloc(sizeof(char) * len_joined);
+	if (!joined)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s1[i])
+		joined[j++] = s1[i++];
+	i = 0;
+	while (s2[i])
+		joined[j++] = s2[i++];
+	joined[j] = '\0';
+	return (joined);
+}
+
+// int	main(void)
+// {
+// 	char s[] = "hallo";
+// 	char s2[] = "bye";
+
+// 	char *s3 = ft_strjoin(s, s2);
+// 	printf("%s\n", s3);
+// }ft_strlcat.c/   0           0     0     644     1643      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/02 14:51:12 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/03 17:05:48 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+size_t	ft_strlen(const char *s);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
+{
+	size_t	dst_len;
+	size_t	src_len;
+	size_t	i;
+
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	i = 0;
+	if (size <= dst_len)
+		return (size + src_len);
+	else
+	{
+		while (src[i] && dst_len + i < size - 1)
+		{
+			dst[dst_len + i] = src[i];
+			i++;
+		}
+		dst[dst_len + i] = '\0';
+	}
+	return (dst_len + src_len);
+}
+
+// int	main(void)
+// {
+// 	char	src1[6] = "Hello";
+// 	char	dest1[20] = "Bye";
+
+// 	printf("%zu\n", ft_strlcat(dest1, src1, 9));
+// 	printf("%s\n", dest1);
+// }
+ft_strlcpy.c/   0           0     0     644     1520      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/30 12:01:08 by fsitter           #+#    #+#             */
+/*   Updated: 2025/09/30 15:13:01 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+#include <string.h>
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+size_t	ft_strlen(const char *s);
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	while (src[i] != '\0' && size - 1 > i)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (ft_strlen(src));
+}
+
+// int	main(void)
+// {
+// 	char dest[5] = {"hello"};
+// 	char src[5] = {"bybye"};
+// 	printf("%s\n", dest);
+// 	//ft_strlcpy(dest, src, 9);
+// 	strlcpy(dest, src, 9);
+// 	printf("%s\n", dest);
+// }ft_strlen.c/    0           0     0     644     1087      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/29 13:14:17 by fsitter           #+#    #+#             */
+/*   Updated: 2025/09/29 15:57:25 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+size_t	ft_strlen(const char *s);
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+// int	main(void)
+// {
+// 	ft_putnbr_
+// }
+ft_strmapi.c/   0           0     0     644     1598      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/08 12:41:26 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/08 12:51:06 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	int		i;
+	int	len;
+	char	*mapped;
+
+	i = 0;
+	len = ft_strlen(s);
+	mapped = malloc(sizeof(char) * len + 1);
+	if (!mapped)
+		return (NULL);
+	while (i < len)
+	{
+		mapped[i] = f(i, s[i]);
+		i++;
+	}
+	mapped[i] = '\0';
+	return (mapped);
+}
+
+// char		fs_toupper(unsigned int a, char c);
+
+// char		fs_toupper(unsigned int a, char c)
+// {
+// 	(void)a;
+// 	if (c >= 'a' && c <= 'z')
+// 		return (c - 32);
+// 	else
+// 		return (c);
+// }
+
+// int	main(void)
+// {
+// 	char hallo[] = "hallo";
+// 	char *s;
+
+// 	s = ft_strmapi(hallo, fs_toupper);
+// 	printf("%s\n", s);
+// }ft_strncmp.c/   0           0     0     644     1366      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/01 14:16:06 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/01 15:13:50 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && i < n - 1)
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (s1[i] - s2[i]);
+}
+// int	main(void)
+// {
+// 	char *one = "abcd";
+// 	char *two = "abc";
+// 	int len = 4;
+// 	printf("FT: %i\n", ft_strncmp(one, two, len));
+// 	printf("OR: %i\n", strncmp(one, two, len));
+// }ft_strnstr.c/   0           0     0     644     1650      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/02 16:53:29 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/07 10:35:19 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char	*ft_strnstr(const char *big, const char *little, size_t len);
+
+char	*ft_strnstr(const char *big, const char *little, size_t len)
+{
+	size_t i, j;
+	i = 0;
+	if (little[0] == '\0')
+		return ((char *)big);
+	while (big[i] && i < len)
+	{
+		j = 0;
+		while (big[i+j] != '\0' && big[i+j] == little[j] && j < len)
+		{
+			if (little[j+1] == '\0')
+				return ((char *)&big[i]);
+			j++;
+		}
+		i++;
+	}
+	return(0);
+}
+
+// int	main(void)
+// {
+
+// 	const char *largestring = "Foo Bar Baz";
+// 	const char *smallstring = "Baz";
+// 	size_t lbsd = 20;
+// 	char *ptr;
+// 	char *ptr2;
+
+//     ptr = ft_strnstr(largestring, smallstring, lbsd);
+// 	printf("%s\n", ptr);
+
+// 	// ptr2 = strnstr(largestring, smallstring, lbsd);
+// 	// printf("%s\n", ptr2);
+// }ft_strrchr.c/   0           0     0     644     1301      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/01 14:03:58 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/01 14:08:51 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char	*ft_strrchr(const char *s, int c);
+
+char	*ft_strrchr(const char *s, int c)
+{
+	char	*last;
+
+	last = NULL;
+	while (*s)
+	{
+		if (*(unsigned char *)s == (unsigned char)c)
+		{
+			last = (char *)s;
+		}
+		s++;
+	}
+	if (*(unsigned char *)s == (unsigned char)c)
+	{
+		return ((char *)s);
+	}
+	return (last);
+}
+
+// int	main(void)
+// {
+// 	printf("%s\n", ft_strrchr("hello hello hello", 'e'));
+// }
+ft_strtrim.c/   0           0     0     644     1557      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/06 14:20:50 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/08 12:03:44 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char    *ft_strtrim(char const *s1, char const *set);
+
+char    *ft_strtrim(char const *s1, char const *set)
+{
+	size_t len;
+	size_t len_trim;
+	char * trim;
+	size_t i;
+	size_t j;
+
+	len = ft_strlen(s1);
+	i = 0;
+	while(s1[i] && ft_strchr(set, s1[i]))
+		i++;
+	j = len - 1;
+	while (j > i && ft_strchr(set, s1[j]))
+		j--;
+	len_trim = j - i;
+	trim = malloc(sizeof(char) * (len_trim + 2));
+	if (!trim)
+		return (NULL);
+	ft_memcpy(trim, s1 + i, len_trim + 1);
+	trim[len_trim +1] = '\0';
+	return (trim);
+}
+
+// int	main(void)
+// {
+// 	char s[] = "heyhallohhey";
+// 	char s2[] = "hey";
+
+// 	char *s3;
+
+// 	s3 = ft_strtrim(s, s2);
+// 	printf("%s\n", s3);
+// }
+ft_substr.c/    0           0     0     644     1497      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/06 12:24:16 by fsitter           #+#    #+#             */
+/*   Updated: 2025/10/06 12:53:43 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*sub;
+	int		i;
+	size_t	len_of_s;
+
+	len_of_s = ft_strlen(s);
+	if (start > len)
+		return (NULL);
+	sub = malloc(sizeof(char) * (len + 1));
+	if (!sub)
+		return (NULL);
+	i = 0;
+	while (len > i && s[i])
+	{
+		sub[i] = s[start + i];
+		i++;
+	}
+	sub[i] = '\0';
+	return (sub);
+}
+
+// int	main(void)
+// {
+// 	char s[] = "Hello";
+// 	char *s2 = ft_substr(s, 6, 5);
+// 	printf("%s\n", s);
+// 	printf("%p\n", s);
+// 	printf("%s\n", s2);
+// 	printf("%p\n", s2);
+// }
+ft_tolower.c/   0           0     0     644     1092      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/30 16:20:13 by fsitter           #+#    #+#             */
+/*   Updated: 2025/09/30 16:21:18 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+int	ft_tolower(int c);
+
+int	ft_tolower(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	else
+		return (c);
+}
+
+// int	main(void)
+// {
+// 	printf("%c\n", ft_tolower(66));
+// }ft_toupper.c/   0           0     0     644     1092      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/30 15:27:58 by fsitter           #+#    #+#             */
+/*   Updated: 2025/09/30 16:19:13 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+int	ft_toupper(int c);
+
+int	ft_toupper(int c)
+{
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	else
+		return (c);
+}
+
+// int	main(void)
+// {
+// 	printf("%c\n", ft_toupper(66));
+// }
