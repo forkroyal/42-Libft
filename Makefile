@@ -6,7 +6,7 @@
 #    By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/08 13:34:32 by fsitter           #+#    #+#              #
-#    Updated: 2025/10/08 15:07:48 by fsitter          ###   ########.fr        #
+#    Updated: 2025/10/08 15:11:30 by fsitter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ SOURCE = 	ft_atoi.c \
 
 CFLAGS += -Wall -Wextra -Werror
 
-OBJECTS = $(SOURCE:.c=.o)
+OBJECTS = $(SOURCE: .c=.o)
 
 CC = cc
 
@@ -58,7 +58,7 @@ RM = rm -f
 CREATION = ar rcs
 
 .c.o: 
-	${CC} ${CFLAGS} -c $< -o{<:.c=.o}
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}: ${OBJECTS}
 		${CREATION} ${NAME} ${OBJECTS}
