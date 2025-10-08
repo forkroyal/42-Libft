@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 15:54:39 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/06 10:33:04 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/08 15:28:31 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*str;
 	unsigned char	ctr;
-	int				i;
+	size_t			i;
 
 	i = 0;
 	str = (unsigned char *)s;

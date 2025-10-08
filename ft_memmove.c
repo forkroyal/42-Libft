@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 11:48:46 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/02 11:53:29 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/08 15:28:10 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	char		*mydest;
 	const char	*mysrc;
-	int			i;
+	size_t			i;
 
 	if (!dest || !src)
 		return (0);

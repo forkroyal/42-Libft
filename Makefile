@@ -6,7 +6,7 @@
 #    By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/08 13:34:32 by fsitter           #+#    #+#              #
-#    Updated: 2025/10/08 15:11:30 by fsitter          ###   ########.fr        #
+#    Updated: 2025/10/08 15:27:41 by fsitter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,12 +44,13 @@ SOURCE = 	ft_atoi.c \
 			ft_strtrim.c \
 			ft_substr.c \
 			ft_tolower.c \
-			ft_toupper.c \
-			#ft_splitt.c
+			ft_toupper.c
+
+HEADER = "libft.h"
 
 CFLAGS += -Wall -Wextra -Werror
 
-OBJECTS = $(SOURCE: .c=.o)
+OBJECTS = $(SOURCE:.c=.o)
 
 CC = cc
 
@@ -57,22 +58,20 @@ RM = rm -f
 
 CREATION = ar rcs
 
-.c.o: 
+
+.c.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}: ${OBJECTS}
-		${CREATION} ${NAME} ${OBJECTS}
+	${CREATION} ${NAME} ${OBJECTS}
 
-clean:
-		${RM} ${OBJECTS}
-
-fclean: clean
+clean:	
+	${RM} ${OBJECTS}
+fclean:	clean
 		${RM} ${NAME}
+re:		fclean all
+all:	${NAME}
+make:	make all
 
-re: 	fclean all
-
-all: ${NAME}
-
-make: make all
 
 .PHONY: clean fclean re all
