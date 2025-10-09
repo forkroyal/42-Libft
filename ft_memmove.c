@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 11:48:46 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/08 15:28:10 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/09 12:05:20 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	char		*mydest;
 	const char	*mysrc;
-	size_t			i;
+	size_t		i;
 
 	if (!dest || !src)
 		return (0);
@@ -27,13 +27,19 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	i = 0;
 	if (dest < src)
 	{
-		while (i++ < n)
+		while (i < n)
+		{
 			mydest[i] = mysrc[i];
+			i++;
+		}
 	}
 	else
 	{
-		while (i++ < n)
+		while (i < n)
+		{
 			mydest[n - i - 1] = mysrc[n - i - 1];
+			i++;
+		}
 	}
 	return (dest);
 }
