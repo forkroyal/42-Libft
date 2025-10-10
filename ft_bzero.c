@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 10:29:52 by fsitter           #+#    #+#             */
-/*   Updated: 2025/09/30 10:38:39 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/10 09:04:54 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,27 @@ void	ft_bzero(void *s, size_t n)
 	unsigned char	*str;
 
 	str = (unsigned char *)s;
-	while (n-- > 0)
+	while (n > 0)
+	{
 		*str++ = '\0';
+		n--;
+	}
 }
-
 // int	main(void)
 // {
 // 	char test[5] = {"hello"};
-// 	printf("%s\n", test);
-// 	ft_bzero(test + 1, sizeof(char) * 2);
-// 	// memset(test+1, 'a', sizeof(char) * 2);
-// 	// printf("%s\n", ft_memset(test + 1, 'x', 2));
-// 	printf("%s\n", test);
+// 	int which = 1;
+
+// 	if (which == 0)
+// 	{
+// 		printf("%s\n", test);
+// 		ft_bzero(NULL, sizeof(char) * 2);
+// 		printf("%s\n", test);
+// 	}
+// 	else
+// 	{
+// 		printf("%s\n", test);
+// 		bzero(NULL, sizeof(char) * 2);
+// 		printf("%s\n", test);
+// 	}
 // }
