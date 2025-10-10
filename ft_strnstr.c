@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 16:53:29 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/10 14:41:16 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/10 15:45:11 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	j;
 
 	i = 0;
-	if (len == 0)
+	if (!big && len == 0)
 		return (0);
 	if (little[0] == '\0')
 		return ((char *)big);
 	while (big[i] && i < len)
 	{
 		j = 0;
-		while (big[i + j] != '\0' && big[i + j] == little[j] && j < len)
+		while (big[i + j] != '\0' && big[i + j] == little[j] && i + j < len)
 		{
 			if (little[j + 1] == '\0')
 				return ((char *)&big[i]);
@@ -46,15 +46,20 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 // 	// const char *largestring = NULL;
 // 	// const char *smallstring = "Baz";
 
-// 	const char *largestring = "Foo Bar Baz";
-// 	const char *smallstring = NULL;
+// 	// const char *largestring = "Foo Bar Baz";
+// 	// const char *smallstring = NULL;
+
+// 	const char *largestring = "MZIRIBMZIRIBMZE123";
+// 	const char *smallstring = "MZIRIBMZE";
 
 // 	// const char *largestring = NULL;
 // 	// const char *smallstring = NULL;
 
-// 	size_t lbsd = 20;
+// 	// size_t lbsd = ft_strlen(smallstring);
+// 	printf("%li\n", ft_strlen(smallstring));
 // 	// size_t lbsd = NULL;
 // 	// size_t lbsd = 0;
+// 	size_t lbsd = 9;
 
 // 	char *ptr;
 // 	char *ptr2;
