@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:57:11 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/06 15:07:14 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/10 11:09:54 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ void	ft_putstr_fd(char *s, int fd);
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	while (s[i])
 	{
 		write(fd, &s[i], 1);
