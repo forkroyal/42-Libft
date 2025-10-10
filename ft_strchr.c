@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 13:29:02 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/01 14:01:20 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/10 11:12:07 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ char	*ft_strchr(const char *s, int c);
 
 char	*ft_strchr(const char *s, int c)
 {
+	if (!s)
+		return (NULL);
 	while (*s)
 	{
 		if (*(unsigned char *)s == (unsigned char)c)
@@ -28,7 +30,7 @@ char	*ft_strchr(const char *s, int c)
 	{
 		return ((char *)s);
 	}
-	return (0);
+	return (NULL);
 }
 
 // int	main(void)
