@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 11:48:46 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/09 12:05:20 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/10 10:38:42 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,20 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	const char	*mysrc;
 	size_t		i;
 
-	if (!dest || !src)
+	if (!dest && !src)
 		return (0);
 	mydest = dest;
 	mysrc = src;
 	i = 0;
-	if (dest < src)
+	if (mydest == mysrc || n == 0)
+		return (dest);
+	while (i < n)
 	{
-		while (i < n)
-		{
-			mydest[i] = mysrc[i];
-			i++;
-		}
-	}
-	else
-	{
-		while (i < n)
-		{
+		if (mydest > mysrc && mysrc + n > mydest)
 			mydest[n - i - 1] = mysrc[n - i - 1];
-			i++;
-		}
+		else
+			mydest[i] = mysrc[i];
+		i++;
 	}
 	return (dest);
 }
@@ -54,13 +48,20 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 // 	int	i;
 
 // 	len = sizeof(src) / sizeof(src[0]);
-// 	plus_dest = 2;
+// 	plus_dest = 0;
 // 	copy_this_much = len - plus_dest;
-// 	ft_memmove(src + plus_dest, src, sizeof(int) * copy_this_much);
+
+// 	// ft_memmove(dest + plus_dest, src, sizeof(int) * copy_this_much);
+// 	// ft_memmove(dest + plus_dest, NULL, sizeof(int) * copy_this_much);
+// 	ft_memmove(NULL, NULL, sizeof(int) * copy_this_much);
+
+// 	// memmove(dest + plus_dest, src, sizeof(int) * copy_this_much);
+// 	// memmove(dest + plus_dest, NULL, sizeof(int) * copy_this_much);
+// 	// memmove(NULL, NULL, sizeof(int) * copy_this_much);
 // 	i = 0;
 // 	while (i < 10)
 // 	{
-// 		printf("%i\n", src[i]);
+// 		printf("%i\n", dest[i]);
 // 		i++;
 // 	}
 // }
