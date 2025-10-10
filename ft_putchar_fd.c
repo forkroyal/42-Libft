@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:46:24 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/06 14:55:46 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/10 10:59:55 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,11 @@ void ft_putchar_fd(char c, int fd)
 
 // int	main(void)
 // {
-// 	ft_putchar_fd(48, 1);
+// 	char a = 'a';
+// 	int ft = 1;
+// 	printf("\n");
+// 	ft_putchar_fd(a, ft);
+// 	printf("\n");
+// 	putchar(a);
+// 	printf("\n");
 // }
