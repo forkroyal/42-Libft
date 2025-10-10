@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 12:41:26 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/08 12:51:06 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/10 11:53:47 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	int		i;
-	int	len;
+	int		len;
 	char	*mapped;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	len = ft_strlen(s);
 	mapped = malloc(sizeof(char) * len + 1);
