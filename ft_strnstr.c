@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 16:53:29 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/09 12:36:05 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/10 12:16:44 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
+
 	i = 0;
+	if (len == 0)
+		return (0);
 	if (little[0] == '\0')
 		return ((char *)big);
 	while (big[i] && i < len)
@@ -35,18 +38,32 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	return (0);
 }
 
-// int	main(void)
-// {
+int	main(void)
+{
+	// const char *largestring = "Foo Bar Baz";
+	// const char *smallstring = "Baz";
 
-// 	const char *largestring = "Foo Bar Baz";
-// 	const char *smallstring = "Baz";
-// 	size_t lbsd = 20;
-// 	char *ptr;
-// 	char *ptr2;
+	// const char *largestring = NULL;
+	// const char *smallstring = "Baz";
 
-//     ptr = ft_strnstr(largestring, smallstring, lbsd);
-// 	printf("%s\n", ptr);
+	const char *largestring = "Foo Bar Baz";
+	const char *smallstring = NULL;
 
-// 	// ptr2 = strnstr(largestring, smallstring, lbsd);
-// 	// printf("%s\n", ptr2);
-// }
+	// const char *largestring = NULL;
+	// const char *smallstring = NULL;
+
+	size_t lbsd = 20;
+	// size_t lbsd = NULL;
+	// size_t lbsd = 0;
+
+	char *ptr;
+	char *ptr2;
+
+	// ptr2 = strnstr(largestring, smallstring, lbsd);
+	// printf("%s\n", ptr2);
+
+	printf("safe\n");
+
+	ptr = ft_strnstr(largestring, smallstring, lbsd);
+	printf("%s\n", ptr);
+}
