@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 17:40:23 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/10 09:48:46 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/10 17:18:11 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 // 	int ft = ft_memcmp(s1, s2, NULL);
 // 	printf("FT: %i\n", ft);
-	
+
 // 	int og = memcmp(s1, s2, NULL);
 // 	printf("OG: %i\n", og);
 // }
