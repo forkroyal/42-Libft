@@ -6,37 +6,27 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 10:20:58 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/06 10:41:33 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/10 09:22:42 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 void	*ft_calloc(size_t nmemb, size_t size);
-// void	*ft_memset(void *s, int c, size_t n);
-
-// void	*ft_memset(void *s, int c, size_t n)
-// {
-// 	unsigned char	*str;
-// 	unsigned char	ctr;
-// 	int				i;
-
-// 	i = 0;
-// 	str = (unsigned char *)s;
-// 	ctr = (unsigned char)c;
-// 	while (n > i)
-// 	{
-// 		str[i] = ctr;
-// 		i++;
-// 	}
-// 	return (s);
-// }
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	size_t	bytesize;
 	void	*pointer;
+	size_t	mione;
 
+	mione = -1;
+	if (nmemb == 0 || size == 0)
+		return (ft_strdup(""));
+	if (nmemb < 0 || size < 0)
+		return (NULL);
+	if (mione / size < nmemb)
+		return (NULL);
 	bytesize = nmemb + size;
 	pointer = malloc(bytesize);
 	if (!pointer)
@@ -49,7 +39,12 @@ void	*ft_calloc(size_t nmemb, size_t size)
 // {
 // 	char *pointer;
 
-// 	pointer = ft_calloc(5, sizeof(char));
-// 	printf("%s\n", pointer);
+// 	// pointer = ft_calloc(NULL, sizeof(char));
+// 	// printf("%p\n", pointer);
+
+// 	pointer = calloc(NULL, sizeof(char));
+// 	printf("%p\n", pointer);
+
+	
 
 // }
