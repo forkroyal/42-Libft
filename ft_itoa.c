@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:20:57 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/07 11:17:50 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/10 09:35:17 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ char	*ft_itoa(int n)
 
 // int	main(void)
 // {
-// 	int a = -42;
-// 	printf("%s", ft_itoa(a));
+// 	long long a = 2147483649;
+// 	printf("%s\n", ft_itoa(a));
 // 	//printf("%s\n", itoa(a));
-// 	// printf("%i\n", wie_viele_stellen(-420));
+// 	//printf("%i\n", wie_viele_stellen(-420));
 // }
