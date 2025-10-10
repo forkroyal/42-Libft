@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 16:53:29 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/10 12:16:44 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/10 14:41:16 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,32 +38,32 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	return (0);
 }
 
-int	main(void)
-{
-	// const char *largestring = "Foo Bar Baz";
-	// const char *smallstring = "Baz";
+// int	main(void)
+// {
+// 	// const char *largestring = "Foo Bar Baz";
+// 	// const char *smallstring = "Baz";
 
-	// const char *largestring = NULL;
-	// const char *smallstring = "Baz";
+// 	// const char *largestring = NULL;
+// 	// const char *smallstring = "Baz";
 
-	const char *largestring = "Foo Bar Baz";
-	const char *smallstring = NULL;
+// 	const char *largestring = "Foo Bar Baz";
+// 	const char *smallstring = NULL;
 
-	// const char *largestring = NULL;
-	// const char *smallstring = NULL;
+// 	// const char *largestring = NULL;
+// 	// const char *smallstring = NULL;
 
-	size_t lbsd = 20;
-	// size_t lbsd = NULL;
-	// size_t lbsd = 0;
+// 	size_t lbsd = 20;
+// 	// size_t lbsd = NULL;
+// 	// size_t lbsd = 0;
 
-	char *ptr;
-	char *ptr2;
+// 	char *ptr;
+// 	char *ptr2;
 
-	// ptr2 = strnstr(largestring, smallstring, lbsd);
-	// printf("%s\n", ptr2);
+// 	// ptr2 = strnstr(largestring, smallstring, lbsd);
+// 	// printf("%s\n", ptr2);
 
-	printf("safe\n");
+// 	printf("safe\n");
 
-	ptr = ft_strnstr(largestring, smallstring, lbsd);
-	printf("%s\n", ptr);
-}
+// 	ptr = ft_strnstr(largestring, smallstring, lbsd);
+// 	printf("%s\n", ptr);
+// }
