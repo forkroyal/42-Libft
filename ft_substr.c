@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 12:24:16 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/08 15:29:31 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/10 14:37:59 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	len_of_s;
 
+	if (!s)
+		return (NULL);
 	len_of_s = ft_strlen(s);
 	if (start > len)
 		return (NULL);
