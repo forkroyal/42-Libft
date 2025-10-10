@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:28:38 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/10 11:34:57 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/10 16:56:56 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 // 	char *s3 = ft_strjoin(s, s2);
 // 	printf("%s\n", s3);
+// 	free(s3);
+// 	s3 = NULL;
 // }
