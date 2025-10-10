@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 17:40:23 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/02 09:34:00 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/10 09:45:50 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	const unsigned char	*str1;
 	const unsigned char	*str2;
 
-	str1 = s1;
-	str2 = s2;
+	str1 = (const unsigned char *)s1;
+	str2 = (const unsigned char *)s2;
+	if (n == 0)
+		return (0);
 	while (n > 0)
 	{
 		if (*str1 != *str2)
