@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 17:59:16 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/01 14:01:45 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/10 08:49:52 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ int	ft_atoi(const char *nptr)
 
 // int	main(void)
 // {
-// 	printf("%i\n", ft_atoi("-32"));
+// 	char *nummber = "-2147483650";
+// 	printf("%i\n", ft_atoi(nummber));
+// 	printf("%i\n", atoi(nummber));
 // }
