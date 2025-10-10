@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:14:17 by fsitter           #+#    #+#             */
-/*   Updated: 2025/09/29 15:57:25 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/10 11:50:06 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ size_t	ft_strlen(const char *s)
 
 // int	main(void)
 // {
-// 	ft_putnbr_
+// 	printf("%li\n", strlen(NULL));
+// 	printf("safe\n");
+// 	printf("%li\n", ft_strlen(NULL));
 // }
