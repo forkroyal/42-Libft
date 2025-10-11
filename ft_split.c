@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 08:47:56 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/06 10:42:31 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/11 11:28:53 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,45 +14,47 @@
 
 char	**ft_split(char const *s, char c);
 int		how_many_words(char const *s, char c);
-void	make_words(char const *s, char c);
+char	**make_words(char **pointerzuwords, char const *s, char c);
+void	*free_delete(char **pointerzuwords, int word);
 
-void	make_words(char const *s, char c)
+void	*free_delete(char **pointerzuwords, int word)
 {
 	int	i;
-	int	j;
-	int	len;
-	int	old_i;
 
 	i = 0;
-	j = 0;
-	while (s[i] && j < words)
+	while (i < word)
+	{
+		free(pointerzuwords[i]);
+		i++;
+	}
+	free(pointerzuwords);
+	return (NULL);
+}
+
+char	**make_words(char **pointerzuwords, char const *s, char c)
+{
+	int	i;
+	int	len;
+	int	word;
+
+	i = 0;
+	word = 0;
+	while (s[i])
 	{
 		len = 0;
 		while (s[i] && s[i] == c)
 			i++;
-		while (s[i] && s[i] != c)
+		while (s[i + len] && s[i + len] != c)
 		{
 			len++;
-			i++;
 		}
-		char *word = malloc(sizeof(char) * len + 1);
-		if (!word)
-			return 0;
-		pointerzuwords[j] = word; 
-		j++;
-		i = old_i;
-		int k = 0;
-		while (s[i] && s[i] == c)
-			i++;
-		while (s[i] && s[i] != c)
-		{
-			word[k] = s[i];
-			k++;
-			i++;
-		}
-		word[k] = '\0';
-		old_i = i;
+		pointerzuwords[word] = ft_substr(s, i, len);
+		if (!pointerzuwords[word])
+			return (free_delete(pointerzuwords, word));
+		i += len;
+		word++;
 	}
+	return (pointerzuwords);
 }
 
 int	how_many_words(char const *s, char c)
@@ -79,17 +81,16 @@ int	how_many_words(char const *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**pointerzuwords;
-	int		i;
 
-	pointerzuwords = malloc(sizeof(char *) * how_many_words(s, c) + 1);
+	if (!s)
+		return (NULL);
+	pointerzuwords = ft_calloc(sizeof(char *), (how_many_words(s, c)));
 	if (!pointerzuwords)
-		return (0);
-	i = 0;
-	while (i < how_many_words(s, c))
-	{
-		i++;
-	}
-	pointerzuwords[i] = "suwi";
+		return (NULL);
+	pointerzuwords = make_words(pointerzuwords, s, c);
+	if (!pointerzuwords)
+		return (NULL);
+	return (pointerzuwords);
 }
 
 int	main(void)
@@ -97,5 +98,27 @@ int	main(void)
 	char s[] = "Warum habe ich immer Stress";
 	char c = ' ';
 	printf("%s\n", s);
-	printf("The function how many words prints: %i\n", how_many_words(s, c));
+
+	int words = how_many_words(s, c);
+	printf("The function how many words prints: %i\n", words);
+
+	char **splitted = ft_split(s, c);
+	printf("%li\n", sizeof(splitted));
+
+	int f = 0;
+	while (f < words)
+	{
+		printf("%p\t", splitted[f]);
+		printf("%s\n", splitted[f]);
+		f++;
+	}
+
+	// while (0 < words)
+	// {
+	// 	printf("%p\t", splitted[words - 1]);
+	// 	printf("%s\n", splitted[words - 1]);
+	// 	words--;
+	// }
+
+	// printf("%p\n", splitted[words]);
 }
