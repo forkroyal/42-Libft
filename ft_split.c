@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 08:47:56 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/11 11:31:43 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/11 11:50:15 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,13 +93,15 @@ char	**ft_split(char const *s, char c)
 	return (pointerzuwords);
 }
 
+// #include <stdio.h>
 // int	main(void)
 // {
-// 	char s[] = "Warum habe ich immer Stress";
+// 	char *s = "hey du wie gehts dir du fuß";
 // 	char c = ' ';
 // 	printf("%s\n", s);
 
-// 	int words = how_many_words(s, c);
+// 	int words = 0;
+// 	words =  how_many_words(s, c);
 // 	printf("The function how many words prints: %i\n", words);
 
 // 	char **splitted = ft_split(s, c);
@@ -112,6 +114,8 @@ char	**ft_split(char const *s, char c)
 // 		printf("%s\n", splitted[f]);
 // 		f++;
 // 	}
+
+// 	free_delete(splitted, words);
 
 // 	// while (0 < words)
 // 	// {
