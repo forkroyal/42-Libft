@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:20:50 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/10 17:16:16 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/11 10:14:28 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	i;
 	size_t	j;
 
+	if (!s1)
+		return (NULL);
 	len = ft_strlen(s1);
 	i = 0;
 	while (s1[i] && ft_strchr(set, s1[i]))
@@ -45,6 +47,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 // 	char *s3;
 
+// 	printf("Trimmed: %s\n", ft_strtrim(s, NULL));
+
 // 	s3 = ft_strtrim(s, s2);
-// 	printf("%s\n", s3);
+// 	printf("Trimmed: %s\n", s3);
+
+// 	char *s4;
+
+// 	s4 = ft_strtrim(s, NULL);
+// 	printf("Trimmed: %s\n", s4);
 // }
