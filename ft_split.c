@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 08:47:56 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/11 12:53:49 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/11 13:07:20 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,22 +101,22 @@ char	**ft_split(char const *s, char c)
 
 // int	main(void)
 // {
-// 	char *s = "      split       this for   me  !       ";
-// 	char c = ' ';
+// 	char *s = "split  ||this|for|me|||||!|";
+// 	char c = '|';
 // 	printf("%s\n", s);
 
 // 	int words = 0;
 // 	words = how_many_words(s, c);
 // 	printf("The function how many words prints: %i\n", words);
 
-// 	char **splitted = ft_split(s, ' ');
+// 	char **splitted = ft_split(s, '|');
 // 	printf("%li\n", sizeof(splitted));
 
 // 	int f = 0;
 // 	while (f < words)
 // 	{
-// 		printf("%p\t", splitted[f]);
-// 		printf("%s\n", splitted[f]);
+// 		printf("{%p}\t", splitted[f]);
+// 		printf("{%s}\n", splitted[f]);
 // 		f++;
 // 	}
 
