@@ -1,3 +1,0 @@
-memmove 
-	if (!dest|| !src) entfernen?
-	26 lines

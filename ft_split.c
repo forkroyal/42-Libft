@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 08:47:56 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/11 11:28:53 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/11 11:31:43 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,32 +93,32 @@ char	**ft_split(char const *s, char c)
 	return (pointerzuwords);
 }
 
-int	main(void)
-{
-	char s[] = "Warum habe ich immer Stress";
-	char c = ' ';
-	printf("%s\n", s);
+// int	main(void)
+// {
+// 	char s[] = "Warum habe ich immer Stress";
+// 	char c = ' ';
+// 	printf("%s\n", s);
 
-	int words = how_many_words(s, c);
-	printf("The function how many words prints: %i\n", words);
+// 	int words = how_many_words(s, c);
+// 	printf("The function how many words prints: %i\n", words);
 
-	char **splitted = ft_split(s, c);
-	printf("%li\n", sizeof(splitted));
+// 	char **splitted = ft_split(s, c);
+// 	printf("%li\n", sizeof(splitted));
 
-	int f = 0;
-	while (f < words)
-	{
-		printf("%p\t", splitted[f]);
-		printf("%s\n", splitted[f]);
-		f++;
-	}
+// 	int f = 0;
+// 	while (f < words)
+// 	{
+// 		printf("%p\t", splitted[f]);
+// 		printf("%s\n", splitted[f]);
+// 		f++;
+// 	}
 
-	// while (0 < words)
-	// {
-	// 	printf("%p\t", splitted[words - 1]);
-	// 	printf("%s\n", splitted[words - 1]);
-	// 	words--;
-	// }
+// 	// while (0 < words)
+// 	// {
+// 	// 	printf("%p\t", splitted[words - 1]);
+// 	// 	printf("%s\n", splitted[words - 1]);
+// 	// 	words--;
+// 	// }
 
-	// printf("%p\n", splitted[words]);
-}
+// 	// printf("%p\n", splitted[words]);
+// }
