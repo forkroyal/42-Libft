@@ -6,9 +6,11 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:05:42 by fsitter           #+#    #+#             */
-/*   Updated: 2025/09/29 13:10:19 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/11 14:14:41 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isascii(int c);
 

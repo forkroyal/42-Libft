@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:33:28 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/11 11:34:17 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/11 14:15:59 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 
 # include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
 
 int		ft_isalpha(int c);

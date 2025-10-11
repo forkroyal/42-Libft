@@ -6,9 +6,11 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 12:49:04 by fsitter           #+#    #+#             */
-/*   Updated: 2025/09/29 12:58:40 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/11 14:14:32 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isalpha(int c);
 

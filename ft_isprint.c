@@ -6,9 +6,11 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:11:15 by fsitter           #+#    #+#             */
-/*   Updated: 2025/09/29 13:37:18 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/11 14:14:54 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isprint(int c);
 

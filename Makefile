@@ -6,7 +6,7 @@
 #    By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/08 13:34:32 by fsitter           #+#    #+#              #
-#    Updated: 2025/10/11 11:32:44 by fsitter          ###   ########.fr        #
+#    Updated: 2025/10/11 14:06:51 by fsitter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ SOURCE = 	ft_atoi.c \
 			ft_toupper.c \
 			ft_split.c
 
-HEADER = "libft.h"
+HEADER = libft.h
 
 CFLAGS += -Wall -Wextra -Werror
 
@@ -61,9 +61,9 @@ CREATION = ar rcs
 
 
 .c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+	${CC} ${CFLAGS} -I ${HEADER} -c $< -o ${<:.c=.o}
 
-${NAME}: ${OBJECTS}
+${NAME}: ${OBJECTS} ${HEADER}
 	${CREATION} ${NAME} ${OBJECTS}
 
 clean:	

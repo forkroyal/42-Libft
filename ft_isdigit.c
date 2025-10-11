@@ -6,9 +6,11 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 12:59:47 by fsitter           #+#    #+#             */
-/*   Updated: 2025/09/29 13:02:15 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/11 14:14:48 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isdigit(int c);
 
