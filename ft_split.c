@@ -6,20 +6,20 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 08:47:56 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/11 11:50:15 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/11 12:53:49 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_split(char const *s, char c);
-int		how_many_words(char const *s, char c);
-char	**make_words(char **pointerzuwords, char const *s, char c);
-void	*free_delete(char **pointerzuwords, int word);
+char			**ft_split(char const *s, char c);
+static size_t	how_many_words(char const *si, char ci);
+static char		**make_words(char **pointerzuwords, const char *s, char c);
+static void		*free_delete(char **pointerzuwords, size_t word);
 
-void	*free_delete(char **pointerzuwords, int word)
+static void	*free_delete(char **pointerzuwords, size_t word)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < word)
@@ -31,11 +31,11 @@ void	*free_delete(char **pointerzuwords, int word)
 	return (NULL);
 }
 
-char	**make_words(char **pointerzuwords, char const *s, char c)
+static char	**make_words(char **pointerzuwords, const char *s, char c)
 {
-	int	i;
-	int	len;
-	int	word;
+	unsigned int	i;
+	size_t			len;
+	size_t			word;
 
 	i = 0;
 	word = 0;
@@ -57,11 +57,15 @@ char	**make_words(char **pointerzuwords, char const *s, char c)
 	return (pointerzuwords);
 }
 
-int	how_many_words(char const *s, char c)
+static size_t	how_many_words(char const *si, char ci)
 {
-	int	i;
-	int	words;
+	size_t				i;
+	size_t				words;
+	const unsigned char	*s;
+	unsigned char		c;
 
+	s = (const unsigned char *)si;
+	c = (unsigned char)ci;
 	i = 0;
 	words = 0;
 	while (s[i])
@@ -84,7 +88,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	pointerzuwords = ft_calloc(sizeof(char *), (how_many_words(s, c)));
+	pointerzuwords = ft_calloc(sizeof(char *), (how_many_words(s, c) + 1));
 	if (!pointerzuwords)
 		return (NULL);
 	pointerzuwords = make_words(pointerzuwords, s, c);
@@ -94,17 +98,18 @@ char	**ft_split(char const *s, char c)
 }
 
 // #include <stdio.h>
+
 // int	main(void)
 // {
-// 	char *s = "hey du wie gehts dir du fuß";
+// 	char *s = "      split       this for   me  !       ";
 // 	char c = ' ';
 // 	printf("%s\n", s);
 
 // 	int words = 0;
-// 	words =  how_many_words(s, c);
+// 	words = how_many_words(s, c);
 // 	printf("The function how many words prints: %i\n", words);
 
-// 	char **splitted = ft_split(s, c);
+// 	char **splitted = ft_split(s, ' ');
 // 	printf("%li\n", sizeof(splitted));
 
 // 	int f = 0;
