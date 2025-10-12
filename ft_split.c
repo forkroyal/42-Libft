@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 08:47:56 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/11 13:07:20 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/12 12:11:57 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,19 @@ static char	**make_words(char **pointerzuwords, const char *s, char c)
 	word = 0;
 	while (s[i])
 	{
-		len = 0;
-		while (s[i] && s[i] == c)
+		if (s[i] && s[i] == c)
 			i++;
-		while (s[i + len] && s[i + len] != c)
+		else
 		{
-			len++;
+			len = 0;
+			while (s[i + len] && s[i + len] != c)
+				len++;
+			pointerzuwords[word] = ft_substr(s, i, len);
+			if (!pointerzuwords[word])
+				return (free_delete(pointerzuwords, word));
+			i += len;
+			word++;
 		}
-		pointerzuwords[word] = ft_substr(s, i, len);
-		if (!pointerzuwords[word])
-			return (free_delete(pointerzuwords, word));
-		i += len;
-		word++;
 	}
 	return (pointerzuwords);
 }
