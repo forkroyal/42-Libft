@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:28:38 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/10 17:14:50 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/12 12:27:52 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 	int		j;
 
-	if (!s1 || !s2)
-		return (NULL);
 	len_joined = ft_strlen(s1) + ft_strlen(s2);
 	joined = malloc(sizeof(char) * (len_joined + 1));
 	if (!joined)
@@ -53,3 +51,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 // 	free(s3);
 // 	s3 = NULL;
 // }
+
+// to make the function safe add:
+// if (!s1 || !s2) // [24]
+// 	return (NULL); // [25]

@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 12:41:26 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/10 11:53:47 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/12 12:27:42 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		len;
 	char	*mapped;
 
-	if (!s)
-		return (NULL);
 	i = 0;
 	len = ft_strlen(s);
 	mapped = malloc(sizeof(char) * len + 1);
@@ -55,3 +53,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 // 	s = ft_strmapi(hallo, fs_toupper);
 // 	printf("%s\n", s);
 // }
+
+// to make the fucntion safer add:
+// if (!s) [23]
+// 	return (NULL); [24]
