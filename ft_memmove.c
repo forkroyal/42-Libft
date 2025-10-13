@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 11:48:46 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/13 13:07:44 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/13 13:46:24 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
+// #include <stdio.h>
+// #include <string.h>
 // int	main(void)
 // {
 // 	int	src[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -53,11 +55,15 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 // 	// ft_memmove(dest + plus_dest, src, sizeof(int) * copy_this_much);
 // 	// ft_memmove(dest + plus_dest, NULL, sizeof(int) * copy_this_much);
-// 	ft_memmove(NULL, NULL, sizeof(int) * copy_this_much);
+// 	//ft_memmove(NULL, NULL, sizeof(int) * copy_this_much);
 
 // 	// memmove(dest + plus_dest, src, sizeof(int) * copy_this_much);
-// 	// memmove(dest + plus_dest, NULL, sizeof(int) * copy_this_much);
-// 	// memmove(NULL, NULL, sizeof(int) * copy_this_much);
+// 	// ft_memmove(dest + plus_dest, NULL, sizeof(int) * copy_this_much);
+		//segfault sv
+// 	memmove(NULL, NULL, 3); //segfault works
+// 	//ft_memmove(dest + plus_dest, NULL, sizeof(int) * copy_this_much);
+		//segfault
+
 // 	i = 0;
 // 	while (i < 10)
 // 	{
@@ -65,5 +71,3 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 // 		i++;
 // 	}
 // }
-
-//delete handeling
