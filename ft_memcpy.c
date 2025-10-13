@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 10:41:01 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/13 13:47:10 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/13 13:54:03 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char	*mysrc;
 	size_t			i;
 
+	// if (!dest && !src)
+	// 	return (dest);
 	i = 0;
 	mydest = (unsigned char *)dest;
 	mysrc = (unsigned char *)src;
@@ -31,36 +33,37 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-// #include <stdio.h>
-// #include <string.h>
-// int	main(void)
-// {
-// 	char dest[] = "";
-// 	char *src = "hey";
+#include <stdio.h>
+#include <string.h>
+int	main(void)
+{
+	// char dest[] = "";
+	// char *src = "hey";
+	
+	// // char dest[10] = "";
+	// // char src[5] = "";
+	
+	// size_t len = 5;
 
-// 	// char dest[10] = "";
-// 	// char src[5] = "";
+	// printf("%s\n", dest);
+	// //ft_memcpy(NULL, "hello", len);
+	// printf("%s\n", dest);
 
-// 	size_t len = 5;
+	// printf("safe       \n");
 
-// 	printf("%s\n", dest);
-// 	//ft_memcpy(NULL, "hello", len);
-// 	printf("%s\n", dest);
 
-// 	printf("safe       \n");
+	// char *des = NULL;
+	// char *sr = NULL;
+	
+	// char des[10] = "";
+	// char sr[5] = "";
 
-// 	char *des = NULL;
-// 	char *sr = NULL;
+	printf("hello\n");
+	memcpy(NULL, NULL, 2);
+	printf("safe\n");
 
-// 	// char des[10] = "";
-// 	// char sr[5] = "";
+	printf("safe       \n");
 
-// 	printf("%s\n", des);
-// 	memcpy(NULL, "hello", len);
-// 	printf("%s\n", des);
+}
 
-// 	printf("safe       \n");
-
-// }
-
-// delete handeling
+//delete handeling
