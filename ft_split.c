@@ -55,6 +55,7 @@ static char	**make_words(char **pointerzuwords, const char *s, char c)
 			word++;
 		}
 	}
+	pointerzuwords[word] = NULL;
 	return (pointerzuwords);
 }
 
@@ -80,7 +81,6 @@ static size_t	how_many_words(char const *si, char ci)
 		if (s[i] == c)
 			i++;
 	}
-	pointerzuwords[word] = NULL;
 	return (words);
 }
 
