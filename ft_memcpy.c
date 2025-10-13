@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 10:41:01 by fsitter           #+#    #+#             */
-/*   Updated: 2025/10/10 17:16:27 by fsitter          ###   ########.fr       */
+/*   Updated: 2025/10/13 13:07:39 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,3 +47,5 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 // 	// printf("%s\n", dest);
 
 // }
+
+//delete handeling
