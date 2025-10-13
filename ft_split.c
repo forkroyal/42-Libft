@@ -80,6 +80,7 @@ static size_t	how_many_words(char const *si, char ci)
 		if (s[i] == c)
 			i++;
 	}
+	pointerzuwords[word] = NULL;
 	return (words);
 }
 
